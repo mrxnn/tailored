@@ -19,6 +19,7 @@ import { AppComponent } from './app.component';
 // NG translate
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NavigatorComponent } from './navigator/navigator.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -26,7 +27,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, NavigatorComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

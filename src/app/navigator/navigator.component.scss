@@ -1,0 +1,115 @@
+.navigator {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__title span {
+    color: #F934A6;
+  }
+
+  &__subtitle {
+    margin-top: .5rem;
+    opacity: .5;
+  }
+
+  &__search {
+    border: none;
+    outline: none;
+    font: inherit;
+    background-color: #3C3F54;
+    padding: 1.8rem 2rem;
+    width: 102%;
+    transform: translateX(-1%);
+    border-radius: 2.4rem;
+    color: white;
+    font-weight: 300;
+    margin-top: 3rem;
+
+    &::-webkit-input-placeholder {
+      color: white;
+      opacity: .5;
+    }
+  }
+
+  &__seperator {
+    margin-top: 3rem;
+    font-weight: 400;
+    font-size: 1.6rem;
+  }
+
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2rem;
+  }
+
+  &__item {
+    width: 9.8rem;
+    height: 9.8rem;
+    border-radius: 2.6rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    border: none;
+    outline: none;
+    font: inherit;
+    cursor: pointer;
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-width: 2px;
+      border-style: solid;
+      border-color: transparent;
+      border-radius: 2.6rem;
+      transform: scale(1.14);
+      transition: border-color .2s ease;
+    }
+    
+    &:hover:before {
+      border-color: currentColor;
+    }
+
+    &:hover .navigator__item-text {
+      opacity: 1;
+    }
+
+    &--1 {
+      background-color: #F934A6;
+      color: #F934A6;
+    }
+    
+    &--2 {
+      background-color: #5575F0;
+      color: #5575F0;
+    }
+
+    &--3 {
+      background-color: #F08667;
+      color: #F08667;
+    }
+  }
+
+  &__item-icon {
+    width: 50%;
+  }
+
+  &__item-text {
+    position: absolute;
+    bottom: -5.2rem;
+    font-size: 1.3rem;
+    opacity: 0;
+    color: white;
+    transition: opacity .2s ease;
+    letter-spacing: 1px;
+    background-color: black;
+    padding: 1rem;
+    border-radius: 4px;
+  }
+}

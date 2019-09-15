@@ -10,11 +10,13 @@ function createWindow() {
   win = new BrowserWindow({
     width: 960,
     height: 700,
-    backgroundColor: '#FFF',
+    backgroundColor: '#262A41',
     webPreferences: {
       nodeIntegration: true
     }
   });
+
+  win.removeMenu();
 
   if (serve) {
     require('electron-reload')(__dirname, {
