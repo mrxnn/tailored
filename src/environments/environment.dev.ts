@@ -5,5 +5,14 @@
 
 export const AppConfig = {
   production: false,
-  environment: 'DEV'
+  environment: 'DEV',
+  firebase: {
+    apiKey: "AIzaSyCjerNl_fI48jAoeZCznQ6H3j8I641r5hY",
+    authDomain: "tailor-shop-bc23e.firebaseapp.com",
+    databaseURL: "https://tailor-shop-bc23e.firebaseio.com",
+    projectId: "tailor-shop-bc23e",
+    storageBucket: "tailor-shop-bc23e.appspot.com",
+    messagingSenderId: "654672718941",
+    appId: "1:654672718941:web:9cf92d2c8b3a15da30f1b4"
+  }
 };
