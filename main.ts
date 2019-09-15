@@ -8,8 +8,8 @@ serve = args.some(val => val === '--serve');
 
 function createWindow() {
   win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 960,
+    height: 700,
     backgroundColor: '#FFF',
     webPreferences: {
       nodeIntegration: true
