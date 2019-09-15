@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navigator.component.scss']
 })
 export class NavigatorComponent implements OnInit {
+  username: string;
 
   constructor() { }
 
   ngOnInit() {
+    this.username = process.env.USERNAME;
   }
-
 }
