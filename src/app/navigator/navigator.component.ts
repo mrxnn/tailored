@@ -20,7 +20,7 @@ export class NavigatorComponent implements OnInit {
     this.ui.ordersSlideActive = true;
   }
   
-  onNewClicked() {
+  onRentingClicked() {
     this.ui.overlayActive = true;
     this.ui.rentingSlideActive = true;
   }
