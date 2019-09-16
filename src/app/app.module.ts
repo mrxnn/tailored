@@ -4,6 +4,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppConfig } from '../environments/environment.dev';
 
+// NG translate
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+
 // firebase
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
@@ -15,14 +19,13 @@ import { CoreModule } from './core/core.module';
 
 // components
 import { AppComponent } from './app.component';
-
-// NG translate
-import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
-import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NavigatorComponent } from './navigator/navigator.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { RentingComponent } from './components/renting/renting.component';
 import { FinanceComponent } from './components/finance/finance.component';
+import { OrdersHomeComponent } from './components/orders/orders-home/orders-home.component';
+import { RentingHomeComponent } from './components/renting/renting-home/renting-home.component';
+import { FinanceHomeComponent } from './components/finance/finance-home/finance-home.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -30,7 +33,16 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, NavigatorComponent, OrdersComponent, RentingComponent, FinanceComponent],
+  declarations: [
+    AppComponent, 
+    NavigatorComponent, 
+    OrdersComponent, 
+    RentingComponent, 
+    FinanceComponent, 
+    OrdersHomeComponent, 
+    RentingHomeComponent, 
+    FinanceHomeComponent
+  ],
   imports: [
     BrowserModule,
     HttpClientModule,

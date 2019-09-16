@@ -6,11 +6,7 @@
   [class.overlay--active]="ui.overlayActive"
   (click)="ui.deactivateAll()"></div>
 
-<!--orders page-->
-<app-orders></app-orders>
-
-<!--renting page-->
-<app-renting></app-renting>
-
-<!--finance page-->
-<app-finance></app-finance>
+<!--outlet-->
+<main class="route-container" [class.route-container--active]="ui.overlayActive">
+  <router-outlet></router-outlet>
+</main>

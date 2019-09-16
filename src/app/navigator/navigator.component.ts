@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UIService } from '../core/services';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-navigator',
@@ -9,7 +10,7 @@ import { UIService } from '../core/services';
 export class NavigatorComponent implements OnInit {
   username: string;
 
-  constructor(private ui: UIService) { }
+  constructor(private ui: UIService, private router: Router) { }
 
   ngOnInit() {
     this.username = process.env.USERNAME;
@@ -17,16 +18,16 @@ export class NavigatorComponent implements OnInit {
 
   onTasksClicked() {
     this.ui.overlayActive = true;
-    this.ui.ordersSlideActive = true;
+    this.router.navigate(['orders/home']);
   }
   
   onRentingClicked() {
     this.ui.overlayActive = true;
-    this.ui.rentingSlideActive = true;
+    this.router.navigate(['renting/home']);
   }
   
   onFinanceClicked() {
     this.ui.overlayActive = true;
-    this.ui.financeSlideActive = true;
+    this.router.navigate(['finance/home']);
   }
 }

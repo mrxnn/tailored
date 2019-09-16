@@ -7,12 +7,7 @@ import { UIService } from '../../core/services';
   styleUrls: ['./orders.component.scss']
 })
 export class OrdersComponent implements OnInit {
-  currentDate;
-
-  constructor(public ui: UIService) { }
-
+  constructor() { }
   ngOnInit() {
-    this.currentDate = new Date();
   }
-
 }
