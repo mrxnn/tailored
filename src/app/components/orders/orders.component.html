@@ -1,27 +1,55 @@
 <div class="slide orders" [class.slide--active]="ui.ordersSlideActive">
   <div class="slide__content">
     <div class="slide__header">
-      <h2>Tasks</h2>
+      <h1>Tasks</h1>
       <button>
         <img src="assets/svg/_ionicons_svg_ios-close-circle-outline.svg" alt="close">
       </button>
     </div>
 
-    <p class="orders__title-text">
-      Next dolor sit amet consectetur adipisicing elit. Recusandae nisi minima autem ipsa, quidem sunt perferendis.
+    <!--orders title-->
+    <p class="orders__title">
+      Manage all the tasks with satisfying reminders that eliminates failures while increasing productivity.
     </p>
 
-    <div class="orders__upcoming-tasks">
+    <!--upcoming tasks list-->
+    <div class="orders__section orders__section--1">
       <h3>Upcoming</h3>
       <ul class="orders__tasks">
         <li class="orders__task">
-          This is the task one
+          <img src="assets/svg/bx-check-circle.svg" alt="check">
+          <p>Upload initial layout for the home page</p>
         </li>
         <li class="orders__task">
-          This is the task two
+          <img src="assets/svg/bx-check-circle.svg" alt="check">
+          <p>Fixing icons with transparent backgrounds</p>
         </li>
         <li class="orders__task">
-          This is the last task
+          <img src="assets/svg/bx-circle.svg" alt="uncheck">
+          <p>Discussion regarding workflow improvement</p>
+        </li>
+        <li class="orders__task">
+          <img src="assets/svg/bx-check-circle.svg" alt="check">
+          <p>Just a random task</p>
+        </li>
+      </ul>
+    </div>
+
+    <!--all tasks list-->
+    <div class="orders__section orders__section--2">
+      <h3>All Tasks</h3>
+      <ul class="orders__tasks">
+        <li class="orders__task">
+          <img src="assets/svg/bx-circle.svg" alt="uncheck">
+          <p>Modify quotation for app redesign project</p>
+        </li>
+        <li class="orders__task">
+          <img src="assets/svg/bx-circle.svg" alt="uncheck">
+          <p>Fixing icons with transparent backgrounds</p>
+        </li>
+        <li class="orders__task">
+          <img src="assets/svg/bx-check-circle.svg" alt="check">
+          <p>Upload initial layout for the home page</p>
         </li>
       </ul>
     </div>
