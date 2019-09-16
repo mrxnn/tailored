@@ -51,7 +51,7 @@ body {
   &__header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
 
     button {
       border: none;
@@ -59,10 +59,15 @@ body {
       background-color: transparent;
       width: 2.4rem;
       height: 2.4rem;
+      transform: translateY(3px);
     }
 
     img {
       width: 100%;
     }
+  }
+
+  &__date {
+    color: #F934A6;
   }
 }
