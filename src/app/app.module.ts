@@ -20,6 +20,9 @@ import { AppComponent } from './app.component';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NavigatorComponent } from './navigator/navigator.component';
+import { OrdersComponent } from './components/orders/orders.component';
+import { RentingComponent } from './components/renting/renting.component';
+import { FinanceComponent } from './components/finance/finance.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -27,7 +30,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent, NavigatorComponent],
+  declarations: [AppComponent, NavigatorComponent, OrdersComponent, RentingComponent, FinanceComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

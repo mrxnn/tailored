@@ -17,13 +17,16 @@ export class NavigatorComponent implements OnInit {
 
   onTasksClicked() {
     this.ui.overlayActive = true;
+    this.ui.ordersSlideActive = true;
   }
   
   onNewClicked() {
     this.ui.overlayActive = true;
+    this.ui.rentingSlideActive = true;
   }
   
   onFinanceClicked() {
     this.ui.overlayActive = true;
+    this.ui.financeSlideActive = true;
   }
 }

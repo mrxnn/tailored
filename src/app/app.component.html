@@ -4,4 +4,13 @@
 <!--background overlay-->
 <div class="overlay" 
   [class.overlay--active]="ui.overlayActive"
-  (click)="ui.overlayActive=false"></div>
+  (click)="ui.deactivateAll()"></div>
+
+<!--orders page-->
+<app-orders></app-orders>
+
+<!--renting page-->
+<app-renting></app-renting>
+
+<!--finance page-->
+<app-finance></app-finance>
