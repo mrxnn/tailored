@@ -1,5 +1,30 @@
-<div class="slide" [class.slide--active]="ui.ordersSlideActive">
+<div class="slide orders" [class.slide--active]="ui.ordersSlideActive">
   <div class="slide__content">
-    <h2>Tasks</h2>
+    <div class="slide__header">
+      <h2>Tasks</h2>
+      <button>
+        <img src="assets/svg/_ionicons_svg_ios-close-circle-outline.svg" alt="close">
+      </button>
+    </div>
+
+    <p class="orders__title-text">
+      Next dolor sit amet consectetur adipisicing elit. Recusandae nisi minima autem ipsa, quidem sunt perferendis.
+    </p>
+
+    <div class="orders__upcoming-tasks">
+      <h3>Upcoming</h3>
+      <ul class="orders__tasks">
+        <li class="orders__task">
+          This is the task one
+        </li>
+        <li class="orders__task">
+          This is the task two
+        </li>
+        <li class="orders__task">
+          This is the last task
+        </li>
+      </ul>
+    </div>
+
   </div>
 </div>

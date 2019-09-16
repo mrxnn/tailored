@@ -42,4 +42,22 @@ body {
     border-radius: 1rem;
     padding: 2rem;
   }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    button {
+      border: none;
+      outline: none;
+      background-color: transparent;
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+
+    img {
+      width: 100%;
+    }
+  }
 }
