@@ -42,6 +42,10 @@ body {
     border-radius: 1rem;
     padding: 4rem;
     overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 
   &__header {
