@@ -5,15 +5,15 @@
     <input class="navigator__search" type="text" placeholder="Search task or project...">
     <h3 class="navigator__seperator">Navigation (3)</h3>
     <div class="navigator__items">
-      <button class="navigator__item navigator__item--1">
+      <button class="navigator__item navigator__item--1" (click)="onTasksClicked()">
         <img class="navigator__item-icon" src="assets/svg/_ionicons_svg_ios-cart.svg" alt="">
         <p class="navigator__item-text">Tasks</p>
       </button>
-      <button class="navigator__item navigator__item--2">
+      <button class="navigator__item navigator__item--2" (click)="onNewClicked()">
         <img class="navigator__item-icon" src="assets/svg/_ionicons_svg_ios-add-circle-outline.svg" alt="">
         <p class="navigator__item-text">New</p>
       </button>
-      <button class="navigator__item navigator__item--3">
+      <button class="navigator__item navigator__item--3" (click)="onFinanceClicked()">
         <img class="navigator__item-icon" src="assets/svg/_ionicons_svg_ios-card.svg" alt="">
         <p class="navigator__item-text">Finance</p>
       </button>
