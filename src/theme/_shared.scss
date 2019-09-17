@@ -2,7 +2,8 @@
 .page {
   &__content {
     margin: 2rem;
-    width: 55rem;
+    width: 80vw;
+    max-width: 100rem;
     height: calc(100vh - 4rem);
     background-color: white;
     color: black;
@@ -27,6 +28,7 @@
       width: 2.4rem;
       height: 2.4rem;
       transform: translateY(3px);
+      cursor: pointer;
     }
 
     img { width: 100%; }
