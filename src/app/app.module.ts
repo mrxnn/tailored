@@ -26,6 +26,7 @@ import { FinanceComponent } from './components/finance/finance.component';
 import { OrdersHomeComponent } from './components/orders/orders-home/orders-home.component';
 import { RentingHomeComponent } from './components/renting/renting-home/renting-home.component';
 import { FinanceHomeComponent } from './components/finance/finance-home/finance-home.component';
+import { OrdersCreateComponent } from './components/orders/orders-create/orders-create.component';
 
 // AoT requires an exported function for factories
 export function HttpLoaderFactory(http: HttpClient) {
@@ -41,7 +42,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FinanceComponent, 
     OrdersHomeComponent, 
     RentingHomeComponent, 
-    FinanceHomeComponent
+    FinanceHomeComponent, OrdersCreateComponent
   ],
   imports: [
     BrowserModule,

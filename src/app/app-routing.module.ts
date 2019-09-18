@@ -6,6 +6,7 @@ import { FinanceComponent } from './components/finance/finance.component';
 import { OrdersHomeComponent } from './components/orders/orders-home/orders-home.component';
 import { RentingHomeComponent } from './components/renting/renting-home/renting-home.component';
 import { FinanceHomeComponent } from './components/finance/finance-home/finance-home.component';
+import { OrdersCreateComponent } from './components/orders/orders-create/orders-create.component';
 
 const routes: Routes = [
   { // orders
@@ -15,6 +16,10 @@ const routes: Routes = [
       {
         path: 'home', 
         component: OrdersHomeComponent
+      },
+      {
+        path: 'create',
+        component: OrdersCreateComponent
       }
     ]
   },
