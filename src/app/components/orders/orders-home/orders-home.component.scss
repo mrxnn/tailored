@@ -35,4 +35,21 @@
       line-height: 1.5;
     }
   }
+
+  &__add-btn {
+    border: 0;
+    outline: none;
+    font: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 6rem;
+    height: 6rem;
+    background-color: var(--color-primary-1);
+    border-radius: 50%;
+    position: fixed;
+    bottom: 4rem;
+    right: 4rem;
+    cursor: pointer;
+  }
 }
