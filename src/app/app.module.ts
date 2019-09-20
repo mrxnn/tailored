@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { AppConfig } from '../environments/environment.dev';
+import { ReactiveFormsModule } from '@angular/forms';
 
 // NG translate
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
@@ -48,6 +49,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     CoreModule,
     TranslateModule.forRoot({
       loader: {
