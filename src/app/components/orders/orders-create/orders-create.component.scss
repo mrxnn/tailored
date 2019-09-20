@@ -52,3 +52,49 @@
     img { margin-right: 1rem; }
   }
 }
+
+.items {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+.item {
+  width: calc((100% / 2) - 2rem + (2rem / 2));
+  padding: 2rem;
+  background-color: #eeeeee;
+  margin-bottom: 2rem;
+  margin-right: 2rem;
+
+  &:nth-child(even) {
+    margin-right: 0;
+  }
+
+  &__group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+
+    label {
+      font-size: 1.3rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      flex: 1;
+      opacity: .6;
+    }
+  }
+
+  &__input {
+    border: none;
+    outline: none;
+    padding: 1rem;
+    font: inherit;
+    flex: 1;
+    width: 100%;
+  }
+}
