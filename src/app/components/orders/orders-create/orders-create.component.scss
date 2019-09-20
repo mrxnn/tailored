@@ -1,0 +1,54 @@
+.form {
+  margin-top: 3rem;
+
+  .form__group {
+    margin-bottom: 1rem;
+    label {
+      font-size: 1.3rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      opacity: .6;
+    }
+  }
+
+  &__input {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 1rem;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    font: inherit;
+    margin-top: .5rem;
+    margin-bottom: .8rem;
+
+    &--area {
+      margin-bottom: .5rem;
+    }
+  }
+
+  &__flex {
+    display: flex;
+    & > * {
+      flex: 1;
+      &:not(:last-child) {
+        margin-right: 2rem;
+      }
+    }
+  }
+
+  &__add-item-btn {
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font: inherit;
+    padding: 1rem 1.4rem;
+    margin-top: 2rem;
+    background-color: var(--color-primary-1);
+    color: white;
+    border-radius: 2px;
+    img { margin-right: 1rem; }
+  }
+}
