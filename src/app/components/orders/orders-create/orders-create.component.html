@@ -1,16 +1,12 @@
-<div class="page">
+<div class="page orders-page">
   <div class="page__header">
-    <div>
-      <h2>NEW ORDER</h2>
-      <h6 class="page__date">{{currentDate | date}} &mdash; Add New Items</h6>
-    </div>
+    <h2>NEW ORDER</h2>
     <button (click)="ui.deactivateAll()">
       <img src="assets/svg/_ionicons_svg_ios-close-circle-outline.svg" alt="close">
     </button>
   </div>
 
   <form class="form" [formGroup]="ordersForm">
-    <!--basics-->
     <div class="form__group">
       <label for="customer-name">Full Name</label>
       <input type="text" class="form__input" id="customer-name" formControlName="customerName">
@@ -34,33 +30,16 @@
       </div>
     </div>
 
-    <!--items-->
-    <div class="form__flex">
-      <button class="form__add-item-btn" (click)="addPantsItemTemplate()">
-        <img src="assets/svg/bx-plus.svg" alt="plus">
-        <p>Pants</p>
-      </button>
-      <button class="form__add-item-btn" (click)="addShirtsItemTemplate()">
-        <img src="assets/svg/bx-plus.svg" alt="plus">
-        <p>Shirt</p>
-      </button>
-      <button class="form__add-item-btn" (click)="addCoatsItemTemplate()">
-        <img src="assets/svg/bx-plus.svg" alt="plus">
-        <p>Coat</p>
-      </button>
-      <button class="form__add-item-btn" (click)="addWestCoatsItemTemplate()">
-        <img src="assets/svg/bx-plus.svg" alt="plus">
-        <p>W-Coat</p>
-      </button>
-    </div>
-
-    <!--items-->
+    <!--individual item fields-->
     <div formArrayName="items" class="items">
       <div *ngFor="let item of itemsForms.controls; let i=index" [formGroupName]="i" class="item">
-        <!--common fields-->
-        <div class="item__group">
-          <label for="type">Type</label>
-          <input type="text" class="item__input" formControlName="type">
+        
+        <!--item type indicator-->
+        <div class="item__type">
+          <img src="assets/clothes/trousers.svg" alt="pants" *ngIf="this.ordersForm.value.items[i].type === 'PANT'">
+          <img src="assets/clothes/shirt.svg" alt="shirt" *ngIf="this.ordersForm.value.items[i].type === 'SHIRT'">
+          <img src="assets/clothes/coat.svg" alt="coat" *ngIf="this.ordersForm.value.items[i].type === 'COAT'">
+          <img src="assets/clothes/westcoat.svg" alt="westcoat" *ngIf="this.ordersForm.value.items[i].type === 'WESTCOAT'">
         </div>
 
         <!--pants fields-->
@@ -198,7 +177,26 @@
             <input type="text" class="item__input" formControlName="waist">
           </div>
         </div>
+      </div>
 
+      <!--item template-type selector-->
+      <div class="items__selectors">
+        <button class="form__add-item-btn" (click)="addPantsItemTemplate()">
+          <img src="assets/svg/bx-plus.svg" alt="plus">
+          <p>Pants</p>
+        </button>
+        <button class="form__add-item-btn" (click)="addShirtsItemTemplate()">
+          <img src="assets/svg/bx-plus.svg" alt="plus">
+          <p>Shirt</p>
+        </button>
+        <button class="form__add-item-btn" (click)="addCoatsItemTemplate()">
+          <img src="assets/svg/bx-plus.svg" alt="plus">
+          <p>Coat</p>
+        </button>
+        <button class="form__add-item-btn" (click)="addWestCoatsItemTemplate()">
+          <img src="assets/svg/bx-plus.svg" alt="plus">
+          <p>W-Coat</p>
+        </button>
       </div>
     </div>
   </form>
