@@ -1,207 +1,205 @@
 <div class="page">
-  <div class="page__content">
-    <div class="page__header">
-      <div>
-        <h2>NEW ORDER</h2>
-        <h6 class="page__date">{{currentDate | date}} &mdash; Add New Items</h6>
+  <div class="page__header">
+    <div>
+      <h2>NEW ORDER</h2>
+      <h6 class="page__date">{{currentDate | date}} &mdash; Add New Items</h6>
+    </div>
+    <button (click)="ui.deactivateAll()">
+      <img src="assets/svg/_ionicons_svg_ios-close-circle-outline.svg" alt="close">
+    </button>
+  </div>
+
+  <form class="form" [formGroup]="ordersForm">
+    <!--basics-->
+    <div class="form__group">
+      <label for="customer-name">Full Name</label>
+      <input type="text" class="form__input" id="customer-name" formControlName="customerName">
+    </div>
+    <div class="form__group">
+      <label for="contact-number">Contact Number</label>
+      <input type="text" class="form__input" id="contact-number" formControlName="contactNumber">
+    </div>
+    <div class="form__group">
+      <label for="description">Description</label>
+      <textarea id="description" rows="4" class="form__input form__input--area" formControlName="description"></textarea>
+    </div>
+    <div class="form__flex" formGroupName="amount">
+      <div class="form__group">
+        <label for="total-amount">Total Amount</label>
+        <input type="number" class="form__input" id="total-amount" formControlName="totalAmount">
       </div>
-      <button (click)="ui.deactivateAll()">
-        <img src="assets/svg/_ionicons_svg_ios-close-circle-outline.svg" alt="close">
+      <div class="form__group">
+        <label for="prepaid-amount">Prepaid Amount</label>
+        <input type="number" class="form__input" id="prepaid-amount" formControlName="prepaidAmount">
+      </div>
+    </div>
+
+    <!--items-->
+    <div class="form__flex">
+      <button class="form__add-item-btn" (click)="addPantsItemTemplate()">
+        <img src="assets/svg/bx-plus.svg" alt="plus">
+        <p>Pants</p>
+      </button>
+      <button class="form__add-item-btn" (click)="addShirtsItemTemplate()">
+        <img src="assets/svg/bx-plus.svg" alt="plus">
+        <p>Shirt</p>
+      </button>
+      <button class="form__add-item-btn" (click)="addCoatsItemTemplate()">
+        <img src="assets/svg/bx-plus.svg" alt="plus">
+        <p>Coat</p>
+      </button>
+      <button class="form__add-item-btn" (click)="addWestCoatsItemTemplate()">
+        <img src="assets/svg/bx-plus.svg" alt="plus">
+        <p>W-Coat</p>
       </button>
     </div>
 
-    <form class="form" [formGroup]="ordersForm">
-      <!--basics-->
-      <div class="form__group">
-        <label for="customer-name">Full Name</label>
-        <input type="text" class="form__input" id="customer-name" formControlName="customerName">
-      </div>
-      <div class="form__group">
-        <label for="contact-number">Contact Number</label>
-        <input type="text" class="form__input" id="contact-number" formControlName="contactNumber">
-      </div>
-      <div class="form__group">
-        <label for="description">Description</label>
-        <textarea id="description" rows="4" class="form__input form__input--area" formControlName="description"></textarea>
-      </div>
-      <div class="form__flex" formGroupName="amount">
-        <div class="form__group">
-          <label for="total-amount">Total Amount</label>
-          <input type="number" class="form__input" id="total-amount" formControlName="totalAmount">
+    <!--items-->
+    <div formArrayName="items" class="items">
+      <div *ngFor="let item of itemsForms.controls; let i=index" [formGroupName]="i" class="item">
+        <!--common fields-->
+        <div class="item__group">
+          <label for="type">Type</label>
+          <input type="text" class="item__input" formControlName="type">
         </div>
-        <div class="form__group">
-          <label for="prepaid-amount">Prepaid Amount</label>
-          <input type="number" class="form__input" id="prepaid-amount" formControlName="prepaidAmount">
-        </div>
-      </div>
 
-      <!--items-->
-      <div class="form__flex">
-        <button class="form__add-item-btn" (click)="addPantsItemTemplate()">
-          <img src="assets/svg/bx-plus.svg" alt="plus">
-          <p>Pants</p>
-        </button>
-        <button class="form__add-item-btn" (click)="addShirtsItemTemplate()">
-          <img src="assets/svg/bx-plus.svg" alt="plus">
-          <p>Shirt</p>
-        </button>
-        <button class="form__add-item-btn" (click)="addCoatsItemTemplate()">
-          <img src="assets/svg/bx-plus.svg" alt="plus">
-          <p>Coat</p>
-        </button>
-        <button class="form__add-item-btn" (click)="addWestCoatsItemTemplate()">
-          <img src="assets/svg/bx-plus.svg" alt="plus">
-          <p>W-Coat</p>
-        </button>
-      </div>
-
-      <!--items-->
-      <div formArrayName="items" class="items">
-        <div *ngFor="let item of itemsForms.controls; let i=index" [formGroupName]="i" class="item">
-          <!--common fields-->
+        <!--pants fields-->
+        <div *ngIf="this.ordersForm.value.items[i].type === 'PANT'">
           <div class="item__group">
-            <label for="type">Type</label>
-            <input type="text" class="item__input" formControlName="type">
+            <label for="knee-one">Knee 1</label>
+            <input type="text" class="item__input" formControlName="kneeOne">
           </div>
-
-          <!--pants fields-->
-          <div *ngIf="this.ordersForm.value.items[i].type === 'PANT'">
-            <div class="item__group">
-              <label for="knee-one">Knee 1</label>
-              <input type="text" class="item__input" formControlName="kneeOne">
-            </div>
-            <div class="item__group">
-              <label for="knee-two">Knee 2</label>
-              <input type="text" class="item__input" formControlName="kneeTwo">
-            </div>
-            <div class="item__group">
-              <label for="height">Height</label>
-              <input type="text" class="item__input" formControlName="height">
-            </div>
-            <div class="item__group">
-              <label for="waist">Waist</label>
-              <input type="text" class="item__input" formControlName="waist">
-            </div>
-            <div class="item__group">
-              <label for="sheet">Sheet</label>
-              <input type="text" class="item__input" formControlName="sheet">
-            </div>
-            <div class="item__group">
-              <label for="crotch">Crotch</label>
-              <input type="text" class="item__input" formControlName="crotch">
-            </div>
-            <div class="item__group">
-              <label for="fleet">Fleet</label>
-              <input type="text" class="item__input" formControlName="fleet">
-            </div>
-            <div class="item__group">
-              <label for="heel">Heel</label>
-              <input type="text" class="item__input" formControlName="heel">
-            </div>
-            <div class="item__group">
-              <label for="pocket">Pocket</label>
-              <input type="text" class="item__input" formControlName="pocket">
-            </div>
-            <div class="item__group">
-              <label for="back-pocket">Back Pocket</label>
-              <input type="text" class="item__input" formControlName="backPocket">
-            </div>
+          <div class="item__group">
+            <label for="knee-two">Knee 2</label>
+            <input type="text" class="item__input" formControlName="kneeTwo">
           </div>
-
-          <!--shirt fields-->
-          <div *ngIf="this.ordersForm.value.items[i].type === 'SHIRT'">
-            <div class="item__group">
-              <label for="height">Height</label>
-              <input type="text" class="item__input" formControlName="height">
-            </div>
-            <div class="item__group">
-              <label for="york">York</label>
-              <input type="text" class="item__input" formControlName="york">
-            </div>
-            <div class="item__group">
-              <label for="sleeve-length">Sleeve Length</label>
-              <input type="text" class="item__input" formControlName="sleeveLength">
-            </div>
-            <div class="item__group">
-              <label for="sleeve-around">Sleeve Around</label>
-              <input type="text" class="item__input" formControlName="sleeveAround">
-            </div>
-            <div class="item__group">
-              <label for="chest">Chest</label>
-              <input type="text" class="item__input" formControlName="chest">
-            </div>
-            <div class="item__group">
-              <label for="waist">Waist</label>
-              <input type="text" class="item__input" formControlName="waist">
-            </div>
-            <div class="item__group">
-              <label for="collar">Collar</label>
-              <input type="text" class="item__input" formControlName="collar">
-            </div>
-            <div class="item__group">
-              <label for="add-on">Add On</label>
-              <input type="text" class="item__input" formControlName="addOn">
-            </div>
+          <div class="item__group">
+            <label for="height">Height</label>
+            <input type="text" class="item__input" formControlName="height">
           </div>
-
-          <!--coat fields-->
-          <div *ngIf="this.ordersForm.value.items[i].type === 'COAT'">
-            <div class="item__group">
-              <label for="height-front">Height Front</label>
-              <input type="text" class="item__input" formControlName="heightFront">
-            </div>
-            <div class="item__group">
-              <label for="height-back">Height Back</label>
-              <input type="text" class="item__input" formControlName="heightBack">
-            </div>
-            <div class="item__group">
-              <label for="york">York</label>
-              <input type="text" class="item__input" formControlName="york">
-            </div>
-            <div class="item__group">
-              <label for="gold-middle">Gold Middle</label>
-              <input type="text" class="item__input" formControlName="goldMiddle">
-            </div>
-            <div class="item__group">
-              <label for="sleeve-length">Sleeve Length</label>
-              <input type="text" class="item__input" formControlName="sleeveLength">
-            </div>
-            <div class="item__group">
-              <label for="sleeve-end">Sleeve End</label>
-              <input type="text" class="item__input" formControlName="sleeveEnd">
-            </div>
-            <div class="item__group">
-              <label for="sleeve-middle">Sleeve Middle</label>
-              <input type="text" class="item__input" formControlName="sleeveMiddle">
-            </div>
-            <div class="item__group">
-              <label for="collar">Collar</label>
-              <input type="text" class="item__input" formControlName="collar">
-            </div>
+          <div class="item__group">
+            <label for="waist">Waist</label>
+            <input type="text" class="item__input" formControlName="waist">
           </div>
-
-          <!--west coat fields-->
-          <div *ngIf="this.ordersForm.value.items[i].type === 'WESTCOAT'">
-            <div class="item__group">
-              <label for="height">Height</label>
-              <input type="text" class="item__input" formControlName="height">
-            </div>
-            <div class="item__group">
-              <label for="york">York</label>
-              <input type="text" class="item__input" formControlName="york">
-            </div>
-            <div class="item__group">
-              <label for="chest">Chest</label>
-              <input type="text" class="item__input" formControlName="chest">
-            </div>
-            <div class="item__group">
-              <label for="waist">Waist</label>
-              <input type="text" class="item__input" formControlName="waist">
-            </div>
+          <div class="item__group">
+            <label for="sheet">Sheet</label>
+            <input type="text" class="item__input" formControlName="sheet">
           </div>
-
+          <div class="item__group">
+            <label for="crotch">Crotch</label>
+            <input type="text" class="item__input" formControlName="crotch">
+          </div>
+          <div class="item__group">
+            <label for="fleet">Fleet</label>
+            <input type="text" class="item__input" formControlName="fleet">
+          </div>
+          <div class="item__group">
+            <label for="heel">Heel</label>
+            <input type="text" class="item__input" formControlName="heel">
+          </div>
+          <div class="item__group">
+            <label for="pocket">Pocket</label>
+            <input type="text" class="item__input" formControlName="pocket">
+          </div>
+          <div class="item__group">
+            <label for="back-pocket">Back Pocket</label>
+            <input type="text" class="item__input" formControlName="backPocket">
+          </div>
         </div>
+
+        <!--shirt fields-->
+        <div *ngIf="this.ordersForm.value.items[i].type === 'SHIRT'">
+          <div class="item__group">
+            <label for="height">Height</label>
+            <input type="text" class="item__input" formControlName="height">
+          </div>
+          <div class="item__group">
+            <label for="york">York</label>
+            <input type="text" class="item__input" formControlName="york">
+          </div>
+          <div class="item__group">
+            <label for="sleeve-length">Sleeve Length</label>
+            <input type="text" class="item__input" formControlName="sleeveLength">
+          </div>
+          <div class="item__group">
+            <label for="sleeve-around">Sleeve Around</label>
+            <input type="text" class="item__input" formControlName="sleeveAround">
+          </div>
+          <div class="item__group">
+            <label for="chest">Chest</label>
+            <input type="text" class="item__input" formControlName="chest">
+          </div>
+          <div class="item__group">
+            <label for="waist">Waist</label>
+            <input type="text" class="item__input" formControlName="waist">
+          </div>
+          <div class="item__group">
+            <label for="collar">Collar</label>
+            <input type="text" class="item__input" formControlName="collar">
+          </div>
+          <div class="item__group">
+            <label for="add-on">Add On</label>
+            <input type="text" class="item__input" formControlName="addOn">
+          </div>
+        </div>
+
+        <!--coat fields-->
+        <div *ngIf="this.ordersForm.value.items[i].type === 'COAT'">
+          <div class="item__group">
+            <label for="height-front">Height Front</label>
+            <input type="text" class="item__input" formControlName="heightFront">
+          </div>
+          <div class="item__group">
+            <label for="height-back">Height Back</label>
+            <input type="text" class="item__input" formControlName="heightBack">
+          </div>
+          <div class="item__group">
+            <label for="york">York</label>
+            <input type="text" class="item__input" formControlName="york">
+          </div>
+          <div class="item__group">
+            <label for="gold-middle">Gold Middle</label>
+            <input type="text" class="item__input" formControlName="goldMiddle">
+          </div>
+          <div class="item__group">
+            <label for="sleeve-length">Sleeve Length</label>
+            <input type="text" class="item__input" formControlName="sleeveLength">
+          </div>
+          <div class="item__group">
+            <label for="sleeve-end">Sleeve End</label>
+            <input type="text" class="item__input" formControlName="sleeveEnd">
+          </div>
+          <div class="item__group">
+            <label for="sleeve-middle">Sleeve Middle</label>
+            <input type="text" class="item__input" formControlName="sleeveMiddle">
+          </div>
+          <div class="item__group">
+            <label for="collar">Collar</label>
+            <input type="text" class="item__input" formControlName="collar">
+          </div>
+        </div>
+
+        <!--west coat fields-->
+        <div *ngIf="this.ordersForm.value.items[i].type === 'WESTCOAT'">
+          <div class="item__group">
+            <label for="height">Height</label>
+            <input type="text" class="item__input" formControlName="height">
+          </div>
+          <div class="item__group">
+            <label for="york">York</label>
+            <input type="text" class="item__input" formControlName="york">
+          </div>
+          <div class="item__group">
+            <label for="chest">Chest</label>
+            <input type="text" class="item__input" formControlName="chest">
+          </div>
+          <div class="item__group">
+            <label for="waist">Waist</label>
+            <input type="text" class="item__input" formControlName="waist">
+          </div>
+        </div>
+
       </div>
-    </form>
-  </div>
+    </div>
+  </form>
 </div>
