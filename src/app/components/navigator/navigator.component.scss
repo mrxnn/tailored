@@ -21,7 +21,7 @@
     padding: 1.8rem 2rem;
     width: 102%;
     transform: translateX(-1%);
-    border-radius: 2.4rem;
+    border-radius: .6rem;
     color: white;
     font-weight: 300;
     margin-top: 3rem;
@@ -47,7 +47,7 @@
   &__item {
     width: 9.8rem;
     height: 9.8rem;
-    border-radius: 2.6rem;
+    border-radius: .6rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,7 +68,7 @@
       border-width: 2px;
       border-style: solid;
       border-color: transparent;
-      border-radius: 2.6rem;
+      border-radius: .6rem;
       transform: scale(1.2);
       transition: border-color .2s ease;
     }
