@@ -20,7 +20,7 @@ import { CoreModule } from './core/core.module';
 
 // components
 import { AppComponent } from './app.component';
-import { NavigatorComponent } from './navigator/navigator.component';
+import { NavigatorComponent } from './components/navigator/navigator.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { RentingComponent } from './components/renting/renting.component';
 import { FinanceComponent } from './components/finance/finance.component';
