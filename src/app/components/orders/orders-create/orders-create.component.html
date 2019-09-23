@@ -6,7 +6,7 @@
     </button>
   </div>
 
-  <form class="form" [formGroup]="ordersForm">
+  <form class="form" [formGroup]="ordersForm" (ngSubmit)="onFormSubmitRequest()">
     <div class="form__group">
       <label for="customer-name">Full Name</label>
       <input type="text" class="form__input" id="customer-name" formControlName="customerName">
@@ -181,23 +181,26 @@
 
       <!--item template-type selector-->
       <div class="items__selectors">
-        <button class="form__add-item-btn" (click)="addPantsItemTemplate()">
+        <button class="form__add-item-btn" (click)="addPantsItemTemplate($event)">
           <img src="assets/svg/bx-plus.svg" alt="plus">
           <p>Pants</p>
         </button>
-        <button class="form__add-item-btn" (click)="addShirtsItemTemplate()">
+        <button class="form__add-item-btn" (click)="addShirtsItemTemplate($event)">
           <img src="assets/svg/bx-plus.svg" alt="plus">
           <p>Shirt</p>
         </button>
-        <button class="form__add-item-btn" (click)="addCoatsItemTemplate()">
+        <button class="form__add-item-btn" (click)="addCoatsItemTemplate($event)">
           <img src="assets/svg/bx-plus.svg" alt="plus">
           <p>Coat</p>
         </button>
-        <button class="form__add-item-btn" (click)="addWestCoatsItemTemplate()">
+        <button class="form__add-item-btn" (click)="addWestCoatsItemTemplate($event)">
           <img src="assets/svg/bx-plus.svg" alt="plus">
           <p>W-Coat</p>
         </button>
       </div>
     </div>
+
+    <!--submit button-->
+    <button class="items__submit-btn" type="submit">Save</button>
   </form>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UIService } from '../../../core/services';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { FormHelpers } from './form-helpers';
 
 @Component({
   selector: 'app-orders-create',
@@ -8,13 +9,11 @@ import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
   styleUrls: ['./orders-create.component.scss']
 })
 export class OrdersCreateComponent implements OnInit {
-  currentDate;
   ordersForm: FormGroup;
 
   constructor(public ui: UIService, private fb: FormBuilder) { }
 
   ngOnInit() {
-    this.currentDate = new Date();
     this.ordersForm = this.fb.group({
       customerName: '',
       contactNumber: '',
@@ -26,9 +25,11 @@ export class OrdersCreateComponent implements OnInit {
       items: this.fb.array([]),
       done: false
     });
+  }
 
-    // temp
-    this.ordersForm.valueChanges.subscribe(value => console.log(value));
+  // called when the form submit event occurred
+  onFormSubmitRequest() {
+    console.log(this.ordersForm.value);
   }
 
   // get items form array
@@ -37,73 +38,36 @@ export class OrdersCreateComponent implements OnInit {
   }
 
   // add pants template
-  addPantsItemTemplate() {
-    const tmplt = this.fb.group({
-      type: 'PANT',
-      kneeOne: '',
-      kneeTwo: '',
-      height: '',
-      waist: '',
-      sheet: '',
-      crotch: '',
-      fleet: '',
-      heel: '',
-      pocket: '',
-      backPocket: ''
-    });
-
+  addPantsItemTemplate(e: Event) {
+    const tmplt = FormHelpers.getPantsItemTemplate(this.fb);
     this.itemsForms.push(tmplt);
+    e.preventDefault();
   }
 
   // add shirts template
-  addShirtsItemTemplate() {
-    const tmplt = this.fb.group({
-      type: 'SHIRT',
-      height: '',
-      york: '',
-      sleeveLength: '',
-      sleeveAround: '',
-      chest: '',
-      waist: '',
-      collar: '',
-      addOn: ''
-    });
-
+  addShirtsItemTemplate(e:Event) {
+    const tmplt = FormHelpers.getShirtsItemTemplate(this.fb);
     this.itemsForms.push(tmplt);
+    e.preventDefault();
   }
 
   // add coats template
-  addCoatsItemTemplate() {
-    const tmplt = this.fb.group({
-      type: 'COAT',
-      heightFront: '',
-      heightBack: '',
-      york: '',
-      goldMiddle: '',
-      sleeveLength: '',
-      sleeveEnd: '',
-      sleeveMiddle: '',
-      collar: ''
-    });
-
+  addCoatsItemTemplate(e: Event) {
+    const tmplt = FormHelpers.getCoatsItemTemplate(this.fb);
     this.itemsForms.push(tmplt);
+    e.preventDefault();
   }
 
   // add west coats template
-  addWestCoatsItemTemplate() {
-    const tmplt = this.fb.group({
-      type: 'WESTCOAT',
-      height: '',
-      york: '',
-      chest: '',
-      waist: ''
-    });
-
+  addWestCoatsItemTemplate(e: Event) {
+    const tmplt = FormHelpers.getWestCoatItemTemplate(this.fb);
     this.itemsForms.push(tmplt);
+    e.preventDefault();
   }
 
   // remove a template based on index
-  removeItemTemplate(i) {
+  removeItemTemplate(i: number, e: Event) {
     this.itemsForms.removeAt(i);
+    e.preventDefault();
   }
 }
