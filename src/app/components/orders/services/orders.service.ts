@@ -19,4 +19,9 @@ export class OrdersService {
       console.error("[ERRRROR]", e);
     }
   }
+
+  // retrive all the orders
+  loadAllOrders() {
+    return this.afs.collection('orders').valueChanges({ idField: 'id' });
+  }
 }
