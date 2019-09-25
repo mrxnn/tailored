@@ -11,13 +11,13 @@ import { Observable } from 'rxjs';
 })
 export class OrdersHomeComponent implements OnInit {
   currentDate;
-  orders: Observable<any[]>;
+  orders$: Observable<any[]>;
 
   constructor(public ui: UIService, private router: Router, private os: OrdersService) { }
 
   ngOnInit() {
     this.currentDate = new Date();
-    this.orders = this.os.loadAllOrders();
+    this.orders$ = this.os.loadAllOrders();
   }
 
   onCreateOrderClicked() {
