@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { UIService } from '../../../core/services';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { FormHelpers } from './form-helpers';
+import { OrdersService } from '../services/orders.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-orders-create',
@@ -11,7 +13,7 @@ import { FormHelpers } from './form-helpers';
 export class OrdersCreateComponent implements OnInit {
   ordersForm: FormGroup;
 
-  constructor(public ui: UIService, private fb: FormBuilder) { }
+  constructor(public ui: UIService, private fb: FormBuilder, private os: OrdersService, private router: Router) { }
 
   ngOnInit() {
     this.ordersForm = this.fb.group({
@@ -28,8 +30,9 @@ export class OrdersCreateComponent implements OnInit {
   }
 
   // called when the form submit event occurred
-  onFormSubmitRequest() {
-    console.log(this.ordersForm.value);
+  async onFormSubmitRequest() {
+    await this.os.createNewOrder(this.ordersForm.value);
+    this.router.navigate(['orders/home']);
   }
 
   // get items form array
