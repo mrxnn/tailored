@@ -13,7 +13,7 @@
   <div class="orders__section orders__section--1">
     <h3>Today</h3>
     <ul class="orders__tasks">
-      <li class="orders__task" *ngFor="let order of orders$ | async">
+      <li class="orders__task" *ngFor="let order of upcomingOrders$ | async">
         <img *ngIf="order.finished" src="assets/svg/bx-check-circle.svg" alt="check">
         <img *ngIf="!order.finished" src="assets/svg/bx-circle.svg" alt="uncheck">
         <p>{{order.description}}</p>
