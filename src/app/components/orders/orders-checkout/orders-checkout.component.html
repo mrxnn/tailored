@@ -1,0 +1,56 @@
+<div class="page">
+
+  <div class="page__header">
+    <div>
+      <h2>CHECKOUT ORDER</h2>
+      <h6 class="page__date">{{orderId}}</h6>
+    </div>
+    <button (click)="ui.deactivateAll()">
+      <img src="assets/svg/_ionicons_svg_ios-close-circle-outline.svg" alt="close">
+    </button>
+  </div>
+
+  <div class="checkout">
+    <div class="checkout__info" *ngIf="order$ | async as order">
+      <div class="checkout__flex">
+        <img src="assets/svg/bx-check-circle.svg" alt="check">
+        <div class="checkout__info-field">
+          <label>Description</label>
+          <p>{{order.description}}</p>
+        </div>
+      </div>
+      <div class="checkout__flex">
+        <img src="assets/svg/bx-check-circle.svg" alt="check">
+        <div class="checkout__info-field">
+          <label>Customer Name</label>
+          <p>{{order.customerName}}</p>
+        </div>
+      </div>
+      <div class="checkout__flex">
+        <img src="assets/svg/bx-check-circle.svg" alt="check">
+        <div class="checkout__info-field">
+          <label>Contact Number</label>
+          <p>{{order.contactNumber}}</p>
+        </div>
+      </div>
+      <div class="checkout__flex">
+        <img src="assets/svg/bx-check-circle.svg" alt="check">
+        <div class="checkout__info-field">
+          <label>Total Amount</label>
+          <p>RS {{order.amount.totalAmount}}</p>
+        </div>
+        <div class="checkout__info-field">
+          <label>Prepaid Amount</label>
+          <p>RS {{order.amount.prepaidAmount}}</p>
+        </div>
+        <div class="checkout__info-field">
+          <label>Balance</label>
+          <p>RS {{order.amount.totalAmount - order.amount.prepaidAmount}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="checkout__btn">Checkout {{(order$ | async)?.items.length}} Items</button>
+
+</div>

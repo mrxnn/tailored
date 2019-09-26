@@ -59,4 +59,8 @@ export class OrdersHomeComponent implements OnInit {
   onExploreClicked(orderId: string) {
     this.router.navigate(['orders/explore', orderId]);
   }
+
+  onCheckoutClicked(orderId: string) {
+    this.router.navigate(['orders/checkout', orderId]);
+  }
 }

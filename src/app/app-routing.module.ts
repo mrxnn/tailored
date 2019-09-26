@@ -7,6 +7,7 @@ import { OrdersHomeComponent } from './components/orders/orders-home/orders-home
 import { RentingHomeComponent } from './components/renting/renting-home/renting-home.component';
 import { FinanceHomeComponent } from './components/finance/finance-home/finance-home.component';
 import { OrdersCreateComponent } from './components/orders/orders-create/orders-create.component';
+import { OrdersCheckoutComponent } from './components/orders/orders-checkout/orders-checkout.component';
 
 const routes: Routes = [
   { // orders
@@ -24,6 +25,10 @@ const routes: Routes = [
       {
         path: 'explore/:orderId',
         component: OrdersCreateComponent
+      },
+      {
+        path: 'checkout/:orderId',
+        component: OrdersCheckoutComponent
       }
     ]
   },

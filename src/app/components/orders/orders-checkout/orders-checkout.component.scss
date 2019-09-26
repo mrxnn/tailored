@@ -1,0 +1,44 @@
+// .checkout-page { background-color: #F3F4F8; }
+
+.checkout {
+  margin-top: 1rem;
+
+  &__flex {
+    display: flex;
+    align-items: center;
+    
+    & > * {margin-right: 5rem;}
+    img {margin-right: 2rem;}
+  }
+
+  label {
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    color: var(--color-primary-1);
+    font-weight: 600;
+    margin-bottom: 3px;
+    margin-top: 3rem;
+    display: block;
+  }
+
+  &__info-field {
+    transform: translateY(-8px);
+  }
+
+  &__btn {
+    position: absolute;
+    bottom: 4rem;
+    right: 4rem;
+    border: none;
+    outline: none;
+    padding: 1rem 2rem;
+    transition: all .1s;
+    cursor: pointer;
+    white-space: nowrap;
+
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+}
