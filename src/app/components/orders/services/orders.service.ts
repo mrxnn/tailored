@@ -24,7 +24,7 @@ export class OrdersService {
   }
 
   // retrive all the orders
-  loadAllOrders() {
-    return this.afs.collection('orders').valueChanges({ idField: 'id' });
+  loadAllOrders(orderBy: string = 'returnDate') {
+    return this.afs.collection('orders', ref => ref.orderBy(orderBy)).valueChanges({ idField: 'id' });
   }
 }
