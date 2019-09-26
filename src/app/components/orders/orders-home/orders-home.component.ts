@@ -40,6 +40,13 @@ export class OrdersHomeComponent implements OnInit {
     );
   }
 
+  generateBalanceText(amount: any) {
+    const { totalAmount, prepaidAmount } = amount;
+    const balance = totalAmount - prepaidAmount;
+    if (balance) return `RS ${balance}`;
+    return '';
+  }
+
   onCreateOrderClicked() {
     this.router.navigate(['orders/create']);
   }

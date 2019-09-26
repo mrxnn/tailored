@@ -23,7 +23,7 @@
           <div class="orders__tags">{{order.returnDate}} by {{order.customerName}}</div>
         </div>
         <button class="orders__action-btn" (click)="onExploreClicked(order.id)">Explore</button>
-        <button class="orders__action-btn">Checkout RS <strong>{{order.amount.totalAmount}}</strong></button>
+        <button class="orders__action-btn">Checkout <strong>{{generateBalanceText(order.amount)}}</strong></button>
       </li>
     </ul>
   </div>
@@ -42,9 +42,14 @@
           <div class="orders__tags">{{order.returnDate}} by {{order.customerName}}</div>
         </div>
         <button class="orders__action-btn" (click)="onExploreClicked(order.id)">Explore</button>
-        <button class="orders__action-btn">Checkout RS <strong>{{order.amount.totalAmount}}</strong></button>
+        <button class="orders__action-btn">Checkout <strong>{{generateBalanceText(order.amount)}}</strong></button>
       </li>
     </ul>
+  </div>
+
+  <!--page footer-->
+  <div class="page__footer">
+    &nbsp;
   </div>
 
   <button class="orders__add-btn" (click)="onCreateOrderClicked()">
