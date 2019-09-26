@@ -43,6 +43,13 @@ export class OrdersService {
 
   // toggle the value of finished boolean property
   toggleFinishedStateTo(orderId: string, newstatus: boolean) {
-    this.afs.collection('orders').doc(orderId).update({ finished: newstatus });
+    const props = {finished: newstatus}
+    this.afs.collection('orders').doc(orderId).update(props);
+  }
+
+  // checkout order
+  async checkoutOrderById(orderId: string) {
+    const props = {returned: true}
+    await this.afs.collection('orders').doc(orderId).update(props);
   }
 }

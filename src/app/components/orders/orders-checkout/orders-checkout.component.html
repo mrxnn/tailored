@@ -51,6 +51,6 @@
     </div>
   </div>
 
-  <button class="checkout__btn">Checkout {{(order$ | async)?.items.length}} Items</button>
+  <button class="checkout__btn" (click)="onCheckoutClicked()">Checkout {{(order$ | async)?.items.length}} Items</button>
 
 </div>
