@@ -20,12 +20,14 @@ export class OrdersCreateComponent implements OnInit {
       customerName: '',
       contactNumber: '',
       description: '',
+      returnDate: Date,
       amount: this.fb.group({
         totalAmount: 0,
         prepaidAmount: 0
       }),
       items: this.fb.array([]),
-      done: false
+      finished: false,
+      returned: false
     });
   }
 
