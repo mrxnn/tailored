@@ -2,7 +2,7 @@
   <div class="page__header">
     <div>
       <h2>ACCEPTED ORDERS</h2>
-      <h6 class="page__date">{{currentDate | date}} &mdash; 15 Entries</h6>
+      <h6 class="page__date">{{currentDate | date}} &mdash; {{(orders$ | async)?.length}} Entries</h6>
     </div>
     <button (click)="ui.deactivateAll()">
       <img src="assets/svg/_ionicons_svg_ios-close-circle-outline.svg" alt="close">
@@ -18,7 +18,12 @@
           <img *ngIf="order.finished" src="assets/svg/bx-check-circle.svg" alt="check">
           <img *ngIf="!order.finished" src="assets/svg/bx-circle.svg" alt="uncheck">
         </button>
-        <p>{{order.description}}</p>
+        <div class="orders__task-info">
+          <p>{{order.description}}</p>
+          <div class="orders__tags">{{order.returnDate}} by {{order.customerName}}</div>
+        </div>
+        <button class="orders__action-btn">Explore</button>
+        <button class="orders__action-btn">Checkout RS <strong>{{order.amount.totalAmount}}</strong></button>
       </li>
     </ul>
   </div>
@@ -32,7 +37,12 @@
           <img *ngIf="order.finished" src="assets/svg/bx-check-circle.svg" alt="check">
           <img *ngIf="!order.finished" src="assets/svg/bx-circle.svg" alt="uncheck">
         </button>
-        <p>{{order.description}}</p>
+        <div class="orders__task-info">
+          <p>{{order.description}}</p>
+          <div class="orders__tags">{{order.returnDate}} by {{order.customerName}}</div>
+        </div>
+        <button class="orders__action-btn">Explore</button>
+        <button class="orders__action-btn">Checkout RS <strong>{{order.amount.totalAmount}}</strong></button>
       </li>
     </ul>
   </div>
