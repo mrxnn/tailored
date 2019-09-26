@@ -20,6 +20,10 @@ const routes: Routes = [
       {
         path: 'create',
         component: OrdersCreateComponent
+      },
+      {
+        path: 'explore/:orderId',
+        component: OrdersCreateComponent
       }
     ]
   },

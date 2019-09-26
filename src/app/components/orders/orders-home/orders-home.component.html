@@ -22,7 +22,7 @@
           <p>{{order.description}}</p>
           <div class="orders__tags">{{order.returnDate}} by {{order.customerName}}</div>
         </div>
-        <button class="orders__action-btn">Explore</button>
+        <button class="orders__action-btn" (click)="onExploreClicked(order.id)">Explore</button>
         <button class="orders__action-btn">Checkout RS <strong>{{order.amount.totalAmount}}</strong></button>
       </li>
     </ul>
@@ -41,7 +41,7 @@
           <p>{{order.description}}</p>
           <div class="orders__tags">{{order.returnDate}} by {{order.customerName}}</div>
         </div>
-        <button class="orders__action-btn">Explore</button>
+        <button class="orders__action-btn" (click)="onExploreClicked(order.id)">Explore</button>
         <button class="orders__action-btn">Checkout RS <strong>{{order.amount.totalAmount}}</strong></button>
       </li>
     </ul>

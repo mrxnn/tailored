@@ -21,10 +21,24 @@ export class OrdersService {
       console.error("[ERRRROR]", e);
     }
   }
+  
+  // updates an existing order record
+  async updateExistingOrder(orderId: string, order: any) {
+    try {
+      await this.ordersCollection.doc(orderId).set(order, { merge: true });
+    } catch (e) {
+      console.error("[ERRRROR]", e);
+    }
+  }
 
   // retrive all the orders
   loadAllOrders(orderBy: string = 'returnDate') {
     return this.afs.collection('orders', ref => ref.orderBy(orderBy)).valueChanges({ idField: 'id' });
+  }
+
+  // retrive a single document based on the Id
+  loadOrderById(orderId: string) {
+    return this.afs.doc(`orders/${orderId}`).valueChanges();
   }
 
   // toggle the value of finished boolean property

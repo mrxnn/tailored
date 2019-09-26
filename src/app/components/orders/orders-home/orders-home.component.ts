@@ -48,4 +48,8 @@ export class OrdersHomeComponent implements OnInit {
     console.log(status, !status);
     this.os.toggleFinishedStateTo(orderId, !status);
   }
+
+  onExploreClicked(orderId: string) {
+    this.router.navigate(['orders/explore', orderId]);
+  }
 }
