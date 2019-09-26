@@ -33,7 +33,7 @@ export class OrdersService {
 
   // retrive all the orders
   loadAllOrders(orderBy: string = 'returnDate') {
-    return this.afs.collection('orders', ref => ref.orderBy(orderBy)).valueChanges({ idField: 'id' });
+    return this.afs.collection('orders', ref => ref.where('returned', '==', false).orderBy(orderBy)).valueChanges({ idField: 'id' });
   }
 
   // retrive a single document based on the Id
