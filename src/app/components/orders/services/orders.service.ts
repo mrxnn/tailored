@@ -15,7 +15,6 @@ export class OrdersService {
   // add a new record to the orders collection
   async createNewOrder(order) {
     const createdAt = firebase.firestore.FieldValue.serverTimestamp();
-
     try {
       await this.ordersCollection.add({ ...order, createdAt });
     } catch (e) {
@@ -26,5 +25,10 @@ export class OrdersService {
   // retrive all the orders
   loadAllOrders(orderBy: string = 'returnDate') {
     return this.afs.collection('orders', ref => ref.orderBy(orderBy)).valueChanges({ idField: 'id' });
+  }
+
+  // toggle the value of finished boolean property
+  toggleFinishedStateTo(orderId: string, newstatus: boolean) {
+    this.afs.collection('orders').doc(orderId).update({ finished: newstatus });
   }
 }

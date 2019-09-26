@@ -43,4 +43,9 @@ export class OrdersHomeComponent implements OnInit {
   onCreateOrderClicked() {
     this.router.navigate(['orders/create']);
   }
+
+  onOrderStatusButtonClicked(orderId: string, status: boolean) {
+    console.log(status, !status);
+    this.os.toggleFinishedStateTo(orderId, !status);
+  }
 }
