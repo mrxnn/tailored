@@ -1,6 +1,9 @@
 <div class="page orders-page">
   <div class="page__header">
-    <h2>NEW ORDER</h2>
+    <div>
+      <h2>{{orderId ? 'EXSISTING' : 'NEW'}} ORDER</h2>
+      <h6 class="page__date">{{orderId}}</h6>
+    </div>
     <button (click)="ui.deactivateAll()">
       <img src="assets/svg/_ionicons_svg_ios-close-circle-outline.svg" alt="close">
     </button>
@@ -205,6 +208,6 @@
     </div>
 
     <!--submit button-->
-    <button class="items__submit-btn" type="submit">{{ orderId ? 'Update' : 'Save' }}</button>
+    <button class="items__submit-btn" type="submit">{{ orderId ? 'Update' : 'Save' }} Order</button>
   </form>
 </div>
