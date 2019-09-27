@@ -20,7 +20,11 @@ export class OrdersHomeComponent implements OnInit {
   ngOnInit() {
     this.currentDate = new Date();
     this.orders$ = this.os.loadAllOrders();
-    this.upcomingOrders$ = this.orders$.pipe(
+    this.upcomingOrders$ = this.os.loadTodaysOrders();
+
+    // UNCOMMENT THE FOLLOWING CODE FOR AN ALTANATIVE APPROACH
+
+    /* this.upcomingOrders$ = this.orders$.pipe(
       map(orders => orders.filter(order => {
         
         // dates are stored as yyyy-mm-dd in firestore
@@ -37,7 +41,7 @@ export class OrdersHomeComponent implements OnInit {
         return today === order.returnDate;
         
       }))
-    );
+    ); */
   }
 
   generateBalanceText(amount: any) {

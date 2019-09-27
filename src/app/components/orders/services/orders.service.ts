@@ -36,6 +36,18 @@ export class OrdersService {
     return this.afs.collection('orders', ref => ref.where('returned', '==', false).orderBy(orderBy)).valueChanges({ idField: 'id' });
   }
 
+  // retrive all the orders which should return within a day
+  loadTodaysOrders() {
+    var date = new Date();
+    var dd = String(date.getDate()).padStart(2, '0');
+    var mm = String(date.getMonth() + 1).padStart(2, '0');
+    var yyyy = date.getFullYear();
+    
+    // dates are stored as yyyy-mm-dd in firestore
+    const today = yyyy + '-' + mm + '-' + dd;
+    return this.afs.collection('orders', ref => ref.where('returnDate', '==', today)).valueChanges({ idField: 'id' });
+  }
+
   // retrive a single document based on the Id
   loadOrderById(orderId: string) {
     return this.afs.doc(`orders/${orderId}`).valueChanges();
