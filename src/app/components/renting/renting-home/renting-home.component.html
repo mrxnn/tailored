@@ -2,7 +2,7 @@
   <div class="page__header">
     <div>
       <h2>RENTED ITEMS</h2>
-      <h6 class="page__date">{{currentDate | date}} &mdash; {{(orders$ | async)?.length}} Entries</h6>
+      <h6 class="page__date">{{currentDate | date}} &mdash; {{(rentings$ | async)?.length}} Entries</h6>
     </div>
     <button (click)="ui.deactivateAll()">
       <img src="assets/svg/_ionicons_svg_ios-close-circle-outline.svg" alt="close">
