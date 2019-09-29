@@ -8,6 +8,7 @@ import { RentingHomeComponent } from './components/renting/renting-home/renting-
 import { FinanceHomeComponent } from './components/finance/finance-home/finance-home.component';
 import { OrdersCreateComponent } from './components/orders/orders-create/orders-create.component';
 import { OrdersCheckoutComponent } from './components/orders/orders-checkout/orders-checkout.component';
+import { RentingCreateComponent } from './components/renting/renting-create/renting-create.component';
 
 const routes: Routes = [
   { // orders
@@ -40,6 +41,10 @@ const routes: Routes = [
       {
         path: 'home',
         component: RentingHomeComponent
+      },
+      {
+        path: 'create',
+        component: RentingCreateComponent
       }
     ]
   },

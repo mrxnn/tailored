@@ -1,0 +1,40 @@
+<div class="page renting-page">
+  <div class="page__header">
+    <h2>RENT NEW ITEM</h2>
+    <button (click)="ui.deactivateAll()">
+      <img src="assets/svg/_ionicons_svg_ios-close-circle-outline.svg" alt="close">
+    </button>
+  </div>
+
+  <form class="form" [formGroup]="rentingForm" (ngSubmit)="onFormSubmitRequest()">
+    <div class="form__group">
+      <label for="customer-name">Full Name</label>
+      <input type="text" class="form__input" id="customer-name" formControlName="customerName">
+    </div>
+    <div class="form__group">
+      <label for="contact-number">Contact Number</label>
+      <input type="text" class="form__input" id="contact-number" formControlName="contactNumber">
+    </div>
+    <div class="form__group">
+      <label for="description">Description</label>
+      <textarea id="description" rows="4" class="form__input form__input--area" formControlName="description"></textarea>
+    </div>
+    <div class="form__group">
+      <label for="return-date">Return Date</label>
+      <input type="date" class="form__input" id="return-date" formControlName="returnDate">
+    </div>
+    <div class="form__flex" formGroupName="amount">
+      <div class="form__group">
+        <label for="total-amount">Total Amount</label>
+        <input type="number" class="form__input" id="total-amount" formControlName="totalAmount">
+      </div>
+      <div class="form__group">
+        <label for="prepaid-amount">Prepaid Amount</label>
+        <input type="number" class="form__input" id="prepaid-amount" formControlName="prepaidAmount">
+      </div>
+    </div>
+
+    <!--submit button-->
+    <button class="items__submit-btn" type="submit">Add Item</button>
+  </form>
+</div>
