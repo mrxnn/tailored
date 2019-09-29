@@ -1,19 +1,19 @@
 <div class="navigator">
   <div class="navigator__content">
-    <h1 class="navigator__title"><span>Hi</span> {{username}}</h1>
-    <p class="navigator__subtitle">Welcome back to the workspace. We missed You!</p>
-    <input class="navigator__search" type="text" placeholder="Search task or project...">
-    <h3 class="navigator__seperator">Navigation (3)</h3>
+    <h1 class="navigator__title animated fadeInUp" style="animation-delay: 0s"><span>Hi</span> {{username}}</h1>
+    <p class="navigator__subtitle animated fadeInUp" style="animation-delay: .2s">Welcome back to the workspace. We missed You!</p>
+    <input class="navigator__search animated fadeInUp" style="animation-delay: .4s" type="text" placeholder="Search task or project...">
+    <h3 class="navigator__seperator animated fadeInUp" style="animation-delay: .6s">Navigation (3)</h3>
     <div class="navigator__items">
-      <button class="navigator__item navigator__item--1" (click)="onTasksClicked()">
+      <button class="navigator__item navigator__item--1 animated fadeInUp" style="animation-delay: .8s" (click)="onTasksClicked()">
         <img class="navigator__item-icon" src="assets/svg/bx-task.svg" alt="">
         <p class="navigator__item-text">Tasks</p>
       </button>
-      <button class="navigator__item navigator__item--2" (click)="onRentingClicked()">
+      <button class="navigator__item navigator__item--2 animated fadeInUp" style="animation-delay: 1s" (click)="onRentingClicked()">
         <img class="navigator__item-icon" src="assets/svg/bx-shopping-bag.svg" alt="">
         <p class="navigator__item-text">Renting</p>
       </button>
-      <button class="navigator__item navigator__item--3" (click)="onFinanceClicked()">
+      <button class="navigator__item navigator__item--3 animated fadeInUp" style="animation-delay: .6s" (click)="onFinanceClicked()">
         <img class="navigator__item-icon" src="assets/svg/bx-bar-chart-alt.svg" alt="">
         <p class="navigator__item-text">Finance</p>
       </button>
