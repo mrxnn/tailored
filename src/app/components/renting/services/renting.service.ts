@@ -45,11 +45,17 @@ export class RentingService {
     
     // dates are stored as yyyy-mm-dd in firestore
     const today = yyyy + '-' + mm + '-' + dd;
-    return this.afs.collection('rentings', ref => ref.where('returnDate', '<=', today)).valueChanges({ idField: 'id' });
+    return this.afs.collection('rentings', ref => ref.where('returned', '==', false).where('returnDate', '<', today)).valueChanges({ idField: 'id' });
   }
 
   // load renting item based on id
   loadRentingItemById(rentingId: string) {
     return this.afs.collection('rentings').doc(rentingId).valueChanges();
+  }
+
+  // checkout order
+  async checkoutRentingItemById(rentingId: string) {
+    const props = {returned: true}
+    await this.afs.collection('rentings').doc(rentingId).update(props);
   }
 }
