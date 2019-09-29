@@ -45,7 +45,7 @@ export class OrdersService {
     
     // dates are stored as yyyy-mm-dd in firestore
     const today = yyyy + '-' + mm + '-' + dd;
-    return this.afs.collection('orders', ref => ref.where('returnDate', '==', today)).valueChanges({ idField: 'id' });
+    return this.afs.collection('orders', ref => ref.where('returned', '==', false).where('returnDate', '==', today)).valueChanges({ idField: 'id' });
   }
 
   // retrive a single document based on the Id
