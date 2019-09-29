@@ -19,8 +19,8 @@
           <div class="renting__tags">{{item.returnDate}} By {{item.customerName}}</div>
           <p>{{item.contactNumber}}</p>
         </div>
-        <button class="renting__action-btn">Explore</button>
-        <button class="renting__action-btn">Checkout <strong></strong></button>
+        <button class="renting__action-btn" (click)="onExploreButtonClicked(item.id)">Explore</button>
+        <button class="renting__action-btn" (click)="onCheckoutButtonClicked(item.id)">Checkout <strong></strong></button>
       </li>
     </ul>
   </div>
@@ -35,8 +35,8 @@
           <div class="renting__tags">{{item.returnDate}} By {{item.customerName}}</div>
           <p>{{item.contactNumber}}</p>
         </div>
-        <button class="renting__action-btn">Explore</button>
-        <button class="renting__action-btn">Checkout <strong></strong></button>
+        <button class="renting__action-btn" (click)="onExploreButtonClicked(item.id)">Explore</button>
+        <button class="renting__action-btn" (click)="onCheckoutButtonClicked(item.id)">Checkout <strong></strong></button>
       </li>
     </ul>
   </div>

@@ -25,4 +25,12 @@ export class RentingHomeComponent implements OnInit {
   onCreateRentingClicked() {
     this.router.navigate(['renting/create']);
   }
+
+  onExploreButtonClicked(rentingId: string) {
+    this.router.navigate(['renting/explore', rentingId]);
+  }
+  
+  onCheckoutButtonClicked(rentingId: string) {
+    this.router.navigate(['renting/checkout', rentingId]);
+  }
 }

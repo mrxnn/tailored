@@ -22,6 +22,15 @@ export class RentingService {
     }
   }
 
+  // Updates an individual item
+  async updateExistingRentingItem(rentingId: string, item: any) {
+    try {
+      await this.rentingCollection.doc(rentingId).set(item, { merge: true });
+    } catch (e) {
+      console.error("[ERRRROR]", e);
+    }
+  }
+
   // retrives all the rentings
   loadAllRentings() {
     return this.afs.collection('rentings', ref => ref.where('returned', '==', false).orderBy('createdAt')).valueChanges({idField: 'id'});
@@ -37,5 +46,10 @@ export class RentingService {
     // dates are stored as yyyy-mm-dd in firestore
     const today = yyyy + '-' + mm + '-' + dd;
     return this.afs.collection('rentings', ref => ref.where('returnDate', '<=', today)).valueChanges({ idField: 'id' });
+  }
+
+  // load renting item based on id
+  loadRentingItemById(rentingId: string) {
+    return this.afs.collection('rentings').doc(rentingId).valueChanges();
   }
 }

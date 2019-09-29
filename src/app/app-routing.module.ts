@@ -45,6 +45,10 @@ const routes: Routes = [
       {
         path: 'create',
         component: RentingCreateComponent
+      },
+      {
+        path: 'explore/:rentingId',
+        component: RentingCreateComponent
       }
     ]
   },
