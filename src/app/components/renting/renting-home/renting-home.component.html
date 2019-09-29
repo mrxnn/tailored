@@ -1,9 +1,49 @@
 <div class="page renting">
   <div class="page__header">
-    <h2>RENTING ITEMS</h2>
+    <div>
+      <h2>RENTED ITEMS</h2>
+      <h6 class="page__date">{{currentDate | date}} &mdash; {{(orders$ | async)?.length}} Entries</h6>
+    </div>
     <button (click)="ui.deactivateAll()">
       <img src="assets/svg/_ionicons_svg_ios-close-circle-outline.svg" alt="close">
     </button>
+  </div>
+
+  <div class="renting__section renting__section--1">
+    <h3>Deadline Passed</h3>
+    <ul class="renting__list">
+      <li class="renting__item" *ngFor="let item of deadlinedRentings$ | async">
+        <img src="assets/svg/bx-check-circle.svg" alt="check">
+        <div class="renting__info">
+          <p>{{item.description}}</p>
+          <div class="renting__tags">{{item.returnDate}} By {{item.customerName}}</div>
+          <p>{{item.contactNumber}}</p>
+        </div>
+        <button class="renting__action-btn">Explore</button>
+        <button class="renting__action-btn">Checkout <strong></strong></button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="renting__section renting__section--2">
+    <h3>All Rented Items</h3>
+    <ul class="renting__list">
+      <li class="renting__item" *ngFor="let item of rentings$ | async">
+        <img src="assets/svg/bx-check-circle.svg" alt="check">
+        <div class="renting__info">
+          <p>{{item.description}}</p>
+          <div class="renting__tags">{{item.returnDate}} By {{item.customerName}}</div>
+          <p>{{item.contactNumber}}</p>
+        </div>
+        <button class="renting__action-btn">Explore</button>
+        <button class="renting__action-btn">Checkout <strong></strong></button>
+      </li>
+    </ul>
+  </div>
+
+  <!--page footer-->
+  <div class="page__footer">
+    &nbsp;
   </div>
 
   <button class="renting__add-btn" (click)="onCreateRentingClicked()">

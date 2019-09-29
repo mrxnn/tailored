@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { UIService } from '../../../core/services';
+import { RentingService } from '../services/renting.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-renting-create',
@@ -10,7 +12,7 @@ import { UIService } from '../../../core/services';
 export class RentingCreateComponent implements OnInit {
   rentingForm: FormGroup;
 
-  constructor(public ui: UIService, private fb: FormBuilder) { }
+  constructor(public ui: UIService, private fb: FormBuilder, private rs: RentingService, private router: Router) { }
 
   ngOnInit() {
     this.rentingForm = this.fb.group({
@@ -26,7 +28,8 @@ export class RentingCreateComponent implements OnInit {
     });
   }
 
-  onFormSubmitRequest() {
-    console.log(this.rentingForm.value);
+  async onFormSubmitRequest() {
+    await this.rs.createNewRentingItem(this.rentingForm.value);
+    this.router.navigate(['renting/home']);
   }
 }
