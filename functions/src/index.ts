@@ -1,0 +1,1 @@
+export { addToIndex, updateIndex, removeFromIndex } from './search';
