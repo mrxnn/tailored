@@ -86,7 +86,10 @@
   },
   "dependencies": {
     "@angular/fire": "^5.2.1",
+    "algoliasearch": "^3.35.0",
+    "angular-instantsearch": "^3.0.0-beta.4",
     "animate.css": "^3.7.2",
-    "firebase": "^6.6.1"
+    "firebase": "^6.6.1",
+    "instantsearch.js": "^3.6.0"
   }
 }

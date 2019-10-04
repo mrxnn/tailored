@@ -2,21 +2,51 @@
   <div class="navigator__content">
     <h1 class="navigator__title animated fadeInUp" style="animation-delay: 0s"><span>Hi</span> {{username}}</h1>
     <p class="navigator__subtitle animated fadeInUp" style="animation-delay: .2s">Welcome back to the workspace. We missed You!</p>
-    <input class="navigator__search animated fadeInUp" style="animation-delay: .4s" type="text" placeholder="Search task or project...">
-    <h3 class="navigator__seperator animated fadeInUp" style="animation-delay: .6s">Navigation (3)</h3>
-    <div class="navigator__items">
-      <button class="navigator__item navigator__item--1 animated fadeInUp" style="animation-delay: .8s" (click)="onTasksClicked()">
-        <img class="navigator__item-icon" src="assets/svg/bx-task.svg" alt="">
-        <p class="navigator__item-text">Tasks</p>
-      </button>
-      <button class="navigator__item navigator__item--2 animated fadeInUp" style="animation-delay: 1s" (click)="onRentingClicked()">
-        <img class="navigator__item-icon" src="assets/svg/bx-shopping-bag.svg" alt="">
-        <p class="navigator__item-text">Renting</p>
-      </button>
-      <button class="navigator__item navigator__item--3 animated fadeInUp" style="animation-delay: .6s" (click)="onFinanceClicked()">
-        <img class="navigator__item-icon" src="assets/svg/bx-bar-chart-alt.svg" alt="">
-        <p class="navigator__item-text">Finance</p>
-      </button>
-    </div>
+
+    <!--instantsearch element-->
+    <ais-instantsearch [config]="config">
+      <div class="animated fadeInUp" style="animation-delay: .4s">
+        <ais-search-box></ais-search-box>
+      </div>
+      <ais-hits>
+        <ng-template let-hits="hits" let-results="results">
+
+          <!--empty search result placeholder-->
+          <div *ngIf="hits.length === 0 && results.query" class="navigator__search-result">
+            No matching results found for <strong>{{results.query}}</strong>.
+          </div>
+
+          <!--search result-->
+          <div *ngIf="results.query">
+            <div *ngFor="let hit of hits" class="content">
+              <div class="navigator__search-result" (click)="onExploreSearchResultClicked(hit.objectID)">
+                <p><strong>{{hit.customerName}}</strong> &mdash; {{hit.contactNumber}} | {{hit.items.length}} Items</p>
+              </div>
+            </div>
+          </div>
+
+          <!--navigation links-->
+          <div *ngIf="!results.query">
+            <h3 class="navigator__seperator animated fadeInUp" style="animation-delay: .6s">Navigation (3)</h3>
+            <div class="navigator__items">
+              <button class="navigator__item navigator__item--1 animated fadeInUp" style="animation-delay: .8s" (click)="onTasksClicked()">
+                <img class="navigator__item-icon" src="assets/svg/bx-task.svg" alt="">
+                <p class="navigator__item-text">Orders</p>
+              </button>
+              <button class="navigator__item navigator__item--2 animated fadeInUp" style="animation-delay: 1s" (click)="onRentingClicked()">
+                <img class="navigator__item-icon" src="assets/svg/bx-shopping-bag.svg" alt="">
+                <p class="navigator__item-text">Renting</p>
+              </button>
+              <button class="navigator__item navigator__item--3 animated fadeInUp" style="animation-delay: .6s" (click)="onFinanceClicked()">
+                <img class="navigator__item-icon" src="assets/svg/bx-bar-chart-alt.svg" alt="">
+                <p class="navigator__item-text">Finance</p>
+              </button>
+            </div>
+          </div>
+
+        </ng-template>
+      </ais-hits>
+    </ais-instantsearch>
+
   </div>
 </div>

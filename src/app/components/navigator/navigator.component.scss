@@ -117,4 +117,16 @@
     padding: 1rem;
     border-radius: 4px;
   }
+
+  &__search-result {
+    max-width: 35rem;
+    margin-top: 2rem;
+    border-bottom: 2px solid transparent;
+    padding-bottom: .5rem;
+    cursor: pointer;
+
+    &:hover {
+      border-bottom: 2px solid white;
+    }
+  }
 }
