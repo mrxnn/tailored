@@ -8,15 +8,15 @@ const index = client.initIndex('customers');
 export const addToIndex = functions.firestore.document('orders/{orderId}')
   .onCreate((snapshot, context) => {
     const data = snapshot.data();
-    const id = snapshot.id;
-    return index.addObject({ ...data, id });
+    const objectID = snapshot.id;
+    return index.addObject({ ...data, objectID });
   });
 
 export const updateIndex = functions.firestore.document('orders/{orderId}')
   .onUpdate(change => {
     const data = change.after.data();
-    const id = change.after.id;
-    return index.saveObject({ ...data, id });
+    const objectID = change.after.id;
+    return index.saveObject({ ...data, objectID });
   });
 
 export const removeFromIndex = functions.firestore.document('orders/{orderId}')
